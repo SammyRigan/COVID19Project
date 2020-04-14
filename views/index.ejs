@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../style.css" rel="stylesheet" type="text/css">
+    <title>Estimator</title>
+</head>
+
+<body>
+    <div class="bg-wrapper">
+        <div class="wrap" id="scrolled">
+            <section>
+                <div class="sec-wrap">
+                    <img src="/images/3652872.jpg" alt="">
+                    <p>A huge thanks to medical staff worldwide helping to battle the virus. You are our heroes</p>
+                    <button onclick="scroller()">run estimator</button>
+                </div>
+            </section>
+            <section>
+                <div class="sec-wrap">
+                    <h1>Enter virus data</h1>
+                    <form action="/estimate" method="POST">
+                        <label for="one" class="non">Population</label>
+                        <input class="pass" type="text" name="population" id="one" data-attribute="data-population"
+                            placeholder="Population" required>
+                        <label for="two" class="non"></label>
+                        <input class="pass" type="number" name="timeToElapse" id="two"
+                            data-attribute="data-time-to-elapse" placeholder="Time to elapse" required>
+                        <label for="three" class="non"></label>
+                        <input class="pass" type="number" name="reportedCases" id="three"
+                            data-attribute="data-reported-cases" placeholder="Reported cases" required>
+                        <label for="four" class="non"></label>
+                        <input class="pass" type="number" name="totalHospitalBeds" id="four"
+                            data-attribute="data-total-hospital-beds" placeholder="Total hospital beds" required>
+                        <span class="radio">
+                            <p>Period Type</p>
+                            <span class="item">
+                                <input type="radio" id="days" name="periodType" value="Days">
+                                <label for="days">Days</label>
+                            </span>
+                            <span>
+                                <input type="radio" id="weeks" name="periodType" value="weeks">
+                                <label for="weeks">Weeks</label>
+                            </span>
+                            <span class="item">
+                                <input type="radio" id="months" name="periodType" value="months">
+                                <label for="months">Months</label>
+                            </span>
+                        </span>
+                        <button type="submit" data-attribute="data-go-estimate">Estimate</button>
+                    </form>
+                </div>
+            </section>
+            <section>
+                <div class="sec-wrap">
+                    <p>results</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    var scrollAmt = 0;
+
+    function scroller() {
+        scrollAmt = scrollAmt + 100;
+        el = document.getElementById('scrolled');
+        el.style.transform = `translateY(-${scrollAmt}%)`;
+    }
+</script>
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>  
+<![endif]-->
+
+</html>
