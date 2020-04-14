@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../style.css" rel="stylesheet" type="text/css">
+
+    <title>Estimator</title>
+</head>
+
+<body>
+    <div class="bg-wrapper">
+        <div class="wrap" id="scrolled">
+            <section>
+                <div class="sec-wrap es">
+                    <h1>Best Case Estimations</h1>
+                    <p><b>Currently infected: </b><%= data.output.impact.currentlyInfected %></p>
+                    <p><b>Infected in <%= data.output.data.timeToElapse %> <%= data.output.data.periodType %>:
+                        </b><%= data.output.impact.infectionsByRequestedTime %></p>
+                    <p><b>Severe Cases: </b><%= data.output.impact.severeCasesByRequestedTime %></p>
+                    <p><b>Available hospital beds: </b><%= data.output.impact.hospitalBedsByRequestedTime %></p>
+                    <p><b>Cases for ICU: </b><%= data.output.impact.casesForICUByRequestedTime %></p>
+                    <p><b>Cases for Ventilators: </b><%= data.output.impact.casesForVentilatorsByRequestedTime %></p>
+                    <button class="back" onclick="scroller()">severe case estimations</button>
+                </div>
+            </section>
+            <section>
+                <div class="sec-wrap es">
+                    <h1>Severe Case Estimations</h1>
+                    <p><b>Currently infected: </b><%= data.output.severeImpact.currentlyInfected %></p>
+                    <p><b>Infected in <%= data.output.data.timeToElapse %> <%= data.output.data.periodType %>:
+                        </b><%= data.output.severeImpact.infectionsByRequestedTime %></p>
+                    <p><b>Severe Cases: </b><%= data.output.impact.severeCasesByRequestedTime %></p>
+                    <p><b>Available hospital beds: </b><%= data.output.severeImpact.hospitalBedsByRequestedTime %></p>
+                    <p><b>Cases for ICU: </b><%= data.output.severeImpact.casesForICUByRequestedTime %></p>
+                    <p><b>Cases for Ventilators: </b><%= data.output.severeImpact.casesForVentilatorsByRequestedTime %>
+                    </p>
+                    <a href="/">Go back</a>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+<script>
+    var scrollAmt = 0;
+
+    function scroller() {
+        scrollAmt = scrollAmt + 100;
+        el = document.getElementById('scrolled');
+        el.style.transform = `translateY(-${scrollAmt}%)`;
+    }
+</script>
+
+</html>
